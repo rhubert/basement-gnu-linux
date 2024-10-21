@@ -20,7 +20,7 @@ buildScript: |
     export KCONFIG_NOTIMESTAMP=1
 
     mkdir -p build install
-    cd build
+    pushd build
 
     if [[ ${BUSYBOX_CUSTOM_CONFIG:+true} ]] ; then
         cp -u "${BOB_DEP_PATHS[core::busybox-custom-config]}/${BUSYBOX_CUSTOM_CONFIG}" .config
@@ -30,6 +30,7 @@ buildScript: |
     fi
     makeParallel
     make CONFIG_PREFIX=${BOB_CWD}/install install
+    popd #build
 
     mkdir -p install/.bob
 
