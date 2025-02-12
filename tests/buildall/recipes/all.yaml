@@ -36,6 +36,7 @@ depends:
     - libs::appstream-tgt
     - libs::libassuan-tgt
     - libs::libksba-tgt
+    - libs::bayer2rgb-tgt
     - libs::botan-tgt
     - libs::cairo-tgt
     - libs::cloog-tgt
