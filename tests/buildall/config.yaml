@@ -1,0 +1,8 @@
+bobMinimumVersion: "0.25"
+
+layers:
+    - basement-gnu-linux
+    - name: basement
+      scm: git
+      url: ${BASEMENT_URL:-https://github.com/BobBuildTool/basement.git}
+      branch: ${BASEMENT_BRANCH:-master}
