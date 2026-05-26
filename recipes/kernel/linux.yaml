@@ -6,7 +6,7 @@
 # To use a custom defconfig create a package kernel::linux-custom-config and
 # set LINUX_CUSTOM_CONFIG to the name of your custom defconfig file.
 
-inherit: ["linux"]
+inherit: ["linux", sbom]
 
 depends:
     - if: "${LINUX_CUSTOM_CONFIG:-}"

@@ -24,6 +24,7 @@
 # Please note, that you will need a base root file directory structure which
 # contains e.g. an /etc/passwd file or the timezone files. This is not provided
 # by these classes and has to come from somewhere else.
+inherit: [sbom-image]
 
 depends:
     - tools:
@@ -48,10 +49,16 @@ buildSetup: |
     # $2+: source directories
     rootfsCopy()
     {
+        sbomImageStart
         for i in "${@:2}" ; do
-            rsync -aHK --exclude ".empty" --exclude ".debug" --exclude ".bob" \
-                $i/ $1/
+            find $i/ -mindepth 1 \
+                \( -not -path "*/.bob*" -a -not -path "*/.debug*" -a -not -name ".empty" \) \
+                -printf '%P\n' > files.txt
+            rsync -aHK --files-from=files.txt $i/ $1/
+            sbomImageComponentAdd $i $1 files.txt
         done
+        rm files.txt
+        sbomImageEnd
     }
 
     # Set the hostname on the target.

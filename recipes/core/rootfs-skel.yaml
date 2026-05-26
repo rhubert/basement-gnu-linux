@@ -1,4 +1,5 @@
 # Creates basic structure for a Linux system. This uses the merged /usr approach.
+inherit: [sbom]
 
 privateEnvironment:
     TARCH: '$(get-tool-env,"target-toolchain","AUTOCONF_HOST","$AUTOCONF_BUILD")'

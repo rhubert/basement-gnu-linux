@@ -1,4 +1,4 @@
-inherit: [autotools]
+inherit: [autotools, sbom]
 
 metaEnvironment:
     PKG_LICENSE: "MIT"

@@ -1,5 +1,8 @@
 inherit: [install]
 
+metaEnvironment:
+    PKG_VERSION: "1.5"
+
 buildTools: [target-toolchain]
 buildVars: [CC, CPPFLAGS, CFLAGS, LDFLAGS]
 buildScript: |
