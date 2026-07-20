@@ -1,0 +1,20 @@
+inherit: [autotools]
+
+metaEnvironment:
+    PKG_LICENSE: "BSD-3-Clause, BSD-2-Clause, ISC, Beerware, Public Domain"
+    PKG_VERSION: "1.2.0"
+
+checkoutSCM:
+    scm: url
+    url: https://libbsd.freedesktop.org/releases/libmd-1.2.0.tar.xz
+    digestSHA256: ac15ffb8430502fbaccdec66c5a82ee0eab0b0f36220df56710feadfeb13d0a0
+    stripComponents: 1
+
+buildScript: |
+    autotoolsBuild $1 --disable-tests
+
+multiPackage:
+    dev:
+        packageScript: autotoolsPackageDev
+    tgt:
+        packageScript: autotoolsPackageTgt
