@@ -37,7 +37,7 @@ buildScript: |
         ${AUTOCONF_HOST:+HOST="${AUTOCONF_HOST}"} \
         STRIP= \
         CC="$CC" \
-        CFLAGS="$CFLAGS" \
+        OPT="$CFLAGS" \
         LDFLAGS="$LDFLAGS" \
         DNS=no \
         ZLIB=yes \
