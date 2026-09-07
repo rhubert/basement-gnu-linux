@@ -10,10 +10,9 @@ They make trouble when configure runs in bob. Simply disable them.
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index d9293294d8..01eba65123 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -3892,8 +3892,8 @@ subdir('bsd-user')
+@@ -3881,8 +3881,8 @@
  subdir('linux-user')
  
  # needed for fuzzing binaries
@@ -22,10 +21,10 @@ index d9293294d8..01eba65123 100644
 +#subdir('tests/qtest/libqos')
 +#subdir('tests/qtest/fuzz')
  
- # accel modules
- target_modules += { 'accel' : { 'qtest': qtest_module_ss }}
-@@ -4589,9 +4589,9 @@ subdir('pc-bios')
- subdir('docs')
+ ##############################################
+ # Internal static_libraries and dependencies #
+@@ -4610,9 +4610,9 @@
+ subdir('pyvenv')
  # Tests are disabled on emscripten because they rely on host features that aren't
  # supported by emscripten (e.g. fork and unix socket).
 -if host_os != 'emscripten'
@@ -39,4 +38,3 @@ index d9293294d8..01eba65123 100644
  endif
 -- 
 2.47.3
-
