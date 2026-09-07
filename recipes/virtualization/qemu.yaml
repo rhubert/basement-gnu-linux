@@ -109,6 +109,13 @@ multiPackage:
                 install/usr/bin/qemu-ga
 
     "storage-daemon":
+        depends:
+            - libs::libaio-dev
+
+            - use: []
+              depends:
+                  - libs::libaio-tgt
+
         buildScript: |
             mkdir -p build install
             pushd build
@@ -116,7 +123,8 @@ multiPackage:
                 $QEMU_DEFAULT_CONFIGURE_TOOLS_OPTS \
                 --enable-tools \
                 --enable-vhost-user \
-                --enable-vhost-user-blk-server
+                --enable-vhost-user-blk-server \
+                --enable-linux-aio
 
             # only build the required tool
             makeParallel \
