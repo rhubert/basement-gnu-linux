@@ -53,6 +53,7 @@ checkoutScript: |
     if [[ ${GRUB2_BOOTSTRAP:-0} == 1 ]]; then
         ./bootstrap --skip-po
         updateConfigAllRecursive
+        rm grub-core/lib/libgcrypt-grub/cipher/ChangeLog
     fi
 
 buildTools: [bison, flex, python3, host-toolchain, m4]
